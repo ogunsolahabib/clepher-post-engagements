@@ -33,8 +33,6 @@ export default {
       'winter',
       'night',
     ],
-
-    // darkTheme: "dark", // name of one of the included themes for dark mode
     base: true,
     styled: true,
     utils: true,
