@@ -37,13 +37,13 @@ export default function ReplyInComments() {
 
         {/* Static Type Options */}
         {commentType === "static" && <div className="form-control flex flex-col gap-3">
-            {addedComments.map((comment, index) => <div className='badge badge-xl bg-base-200 flex gap-3 size-fit p-1.5 rounded' key={index}>
+            {addedComments.map((comment, index) => <div className='badge badge-xl bg-base-200 flex gap-3 h-fit w-full md:size-fit p-1.5 rounded' key={index}>
 
                 <Input value={comment} onChange={handleChangeComment(index)} type="text" name="comment" id="comment" placeholder="Type your comment here" className="input-bordered focus:outline-offset-0 join-item w-full" autoComplete="off" />
                 <span role='button' onClick={() => setAddedComments(addedComments.filter((c) => c !== comment))} className="cursor-pointer btn btn-circle btn-sm">✕</span>
             </div>)}
 
-            <Button onClick={handleAddCommentButtonClick} className="w-fit m-auto mt-2">Add comment</Button>
+            <Button onClick={handleAddCommentButtonClick} className="w-full md:w-fit m-auto mt-2">Add comment</Button>
         </div>}
 
 
