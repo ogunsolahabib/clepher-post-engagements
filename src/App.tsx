@@ -5,7 +5,7 @@ export function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate('/post-engagement');
+    navigate('/post-engagements');
   }, [navigate])
 
   return (

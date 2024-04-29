@@ -13,11 +13,11 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/post-engagement",
+    path: "/post-engagements",
     element: <PostEngagement />
   },
   {
-    path: '/post-engagement/:id/edit',
+    path: '/post-engagements/:id/edit',
     element: <EditPostEngagement />
   },
   { path: "*", element: <ErrorPage /> }

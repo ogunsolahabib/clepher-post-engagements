@@ -11,6 +11,7 @@ import Input from "../../ui/Input"
 import getFilteredList from "../../../utills/getFilteredList"
 import Search from "../../icons/Search"
 import ArrowDown from "../../icons/ArrowDown"
+import { Link } from "react-router-dom"
 
 const renderChannelIcon = (channel: any) => {
     switch (channel) {
@@ -97,9 +98,9 @@ export default function PostsTable() {
         { title: "Conversion", accessor: (data) => `${data.conversion}%` },
 
         {
-            title: "Action", accessor: () => <Dropdown className='dropdown-end' labelNode={
+            title: "Action", accessor: (data) => <Dropdown className='dropdown-end' labelNode={
                 <Button size='xs' variant='outline'>Actions</Button>} contentNode={<DropDownContent className="menu menu-xs shadow bg-base-100">
-                    <li><a>Edit</a></li>
+                    <li><Link to={`/post-engagements/${data.id}/edit`}>Edit</Link></li>
                     <li><a>Rename</a></li>
                     <li><a>Delete</a></li>
                 </DropDownContent>
@@ -113,7 +114,7 @@ export default function PostsTable() {
             <div className="flex gap-2 items-center">
                 <label className="input input-bordered flex items-center gap-2 size-fit pl-0 pr-2">
 
-                    <Input value={searchInputValue} onChange={e => setSearchInputValue(e.target.value)} type="search" id="search" placeholder="Search" className="input-sm grow border-0 focus:outline-none" autoComplete="off" />
+                    <Input value={searchInputValue} onChange={e => setSearchInputValue(e.target.value)} type="search" id="search" placeholder="Search..." className="input-sm grow border-0 focus:outline-none" autoComplete="off" />
                     <Search />
 
                 </label>
