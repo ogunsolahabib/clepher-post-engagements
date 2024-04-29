@@ -30,7 +30,7 @@ export default function PostsConfig() {
 
 
         </div>
-        <div className="flex flex-col gap-5 text-sm px-6 py-10 md:h-96 overflow-auto">
+        <div className="flex flex-col gap-5 text-sm px-6 py-10 md:h-[60vh] overflow-auto">
             {tabList.find(t => t.id === activeTab)?.content}
         </div>
     </div>
