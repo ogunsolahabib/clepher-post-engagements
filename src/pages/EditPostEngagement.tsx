@@ -3,7 +3,8 @@ import RootLayout from "../components/RootLayout";
 import Breadcrumb from "../components/ui/Breadcrumbs";
 import Card, { CardBody } from "../components/ui/Card";
 import Button from "../components/ui/Button";
-import Comments from "../components/page-specific/EditPostEngagement/Comments";
+import CommentsConfig from "../components/page-specific/EditPostEngagement/CommentsConfig";
+import PostsConfig from "../components/page-specific/EditPostEngagement/PostsConfig";
 
 export default function EditPostEngagement() {
     return <RootLayout>
@@ -15,7 +16,10 @@ export default function EditPostEngagement() {
             <CardBody>
                 <div className="flex flex-col md:flex-row">
                     <div className="md:basis-2/5">
-                        <Comments />
+                        <CommentsConfig />
+                    </div>
+                    <div className="md:basis-3/5">
+                        <PostsConfig />
                     </div>
                 </div>
             </CardBody>
