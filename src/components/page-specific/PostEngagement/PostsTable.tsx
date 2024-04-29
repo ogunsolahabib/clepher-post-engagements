@@ -25,10 +25,7 @@ const pageSize = 1
 
 export default function PostsTable() {
 
-
-    const totalPages = Math.ceil(allData.length / pageSize);
-
-    const paginationData = usePagination(totalPages);
+    const paginationData = usePagination(allData.length, 1, pageSize);
 
     const [currentData, setCurrentData] = useState<Array<any>>([]);
 
@@ -97,5 +94,5 @@ export default function PostsTable() {
             </div>
         </div>
         <Table data={currentData} columns={columns} />
-        <Pagination totalPages={totalPages} {...paginationData} /></>
+        <Pagination dataLength={allData.length} pageSize={1} {...paginationData} /></>
 }

@@ -7,9 +7,9 @@ import Input from "./Input";
 import Button from "./Button";
 
 
-export default function Pagination({ totalPages, handlePageChange, currentPage, hasPreviousPage, hasNextPage }) {
+export default function Pagination({ dataLength, pageSize = 10, handlePageChange, currentPage, hasPreviousPage, hasNextPage }) {
 
-
+    const totalPages = Math.ceil(dataLength / pageSize);
 
     const [inputValue, setInputValue] = useState(currentPage);
 
