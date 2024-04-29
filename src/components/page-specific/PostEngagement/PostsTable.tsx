@@ -109,12 +109,12 @@ export default function PostsTable() {
     ];
 
     return <>
-        <div className="flex my-2 items-center justify-between">
+        <div className="flex w-full my-2 items-center justify-between">
             <h1 className="text-xl truncate">Post Engagements</h1>
             <div className="flex gap-2 items-center">
-                <label className="input input-bordered flex items-center gap-2 size-fit pl-0 pr-2">
+                <label className="hidden md:flex iinput input-bordered items-center gap-2 size-fit pl-0 pr-2">
 
-                    <Input value={searchInputValue} onChange={e => setSearchInputValue(e.target.value)} type="search" id="search" placeholder="Search..." className="input-sm grow border-0 focus:outline-none" autoComplete="off" />
+                    <Input value={searchInputValue} onChange={e => setSearchInputValue(e.target.value)} type="search" id="search" placeholder="Search..." className="nput-sm grow border-0 focus:outline-none" autoComplete="off" />
                     <Search />
 
                 </label>

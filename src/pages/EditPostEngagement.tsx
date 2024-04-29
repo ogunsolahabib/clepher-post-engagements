@@ -14,7 +14,7 @@ export default function EditPostEngagement() {
         </div>
         <Card>
             <CardBody>
-                <div className="flex flex-col md:flex-row">
+                <div className="flex flex-col md:flex-row gap-10 md:gap-0">
                     <div className="md:basis-2/5">
                         <CommentsConfig />
                     </div>

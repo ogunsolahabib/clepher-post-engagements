@@ -29,7 +29,7 @@ export default function Pagination({ dataLength, pageSize = 10, handlePageChange
     }, [currentPage])
 
     return (
-        <div className="flex items-center justify-center gap-4 py-3.5">
+        <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-4 py-3.5">
             <Button className="btn-circle" size="sm" disabled={currentPage === 1} onClick={() => handlePageChange(1)}><DoubleArrowLeft /></Button>
             <Button className="btn-circle" size="sm" disabled={!hasPreviousPage} onClick={() => handlePageChange(currentPage - 1)}><ChevronLeft />
             </Button>
@@ -39,12 +39,12 @@ export default function Pagination({ dataLength, pageSize = 10, handlePageChange
             <Button className="btn-circle" size="sm" disabled={!hasNextPage} onClick={() => handlePageChange(totalPages)}>
                 <DoubleArrowRight />
             </Button>
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1 text-xs md:text-md">
                 <div>Page</div>
                 <strong>{currentPage} of {totalPages}</strong>
             </span>
             <span className="hidden items-center gap-1 md:flex">
-                Go to page:
+                <span className="text-xs md:text-md">Go to page:</span>
                 <Input value={inputValue} onChange={onInputChange} type="number" className="input w-12 p-1 input-sm input-bordered focus:outline-offset-0" />
             </span>
         </div>
