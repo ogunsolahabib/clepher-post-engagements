@@ -8,6 +8,7 @@ import CheckBox from "../../ui/Checkbox"
 import Button from "../../ui/Button"
 import Dropdown, { DropDownContent } from "../../ui/Dropdown"
 import Input from "../../ui/Input"
+import getFilteredList from "../../../utills/getFilteredList"
 
 const renderChannelIcon = (channel: any) => {
     switch (channel) {
@@ -28,6 +29,14 @@ export default function PostsTable() {
     const paginationData = usePagination(allData.length, 1, pageSize);
 
     const [currentData, setCurrentData] = useState<Array<any>>([]);
+
+    const [searchInputValue, setSearchInputValue] = useState('');
+
+    useEffect(() => {
+        const currentData = allData.slice(paginationData.startIndex, paginationData.endIndex + 1);
+        if (!searchInputValue) return setCurrentData(currentData)
+        setCurrentData(getFilteredList(allData, searchInputValue))
+    }, [searchInputValue, paginationData.endIndex, paginationData.startIndex])
 
     useEffect(() => {
         const currentData = allData.slice(paginationData.startIndex, paginationData.endIndex + 1);
@@ -82,11 +91,10 @@ export default function PostsTable() {
     ];
 
     return <>
-        <div className="flex justify-between">
-
+        <div className="flex my-2 items-center justify-between">
             <h1>Post Engagements</h1>
-            <div className="flex gap-2">
-                <Input type="search" id="search" placeholder="Search" className="input-bordered input-sm" />
+            <div className="flex gap-2 ">
+                <Input value={searchInputValue} onChange={e => setSearchInputValue(e.target.value)} type="search" id="search" placeholder="Search" className="input-bordered input-sm" autoComplete="off" />
                 <Dropdown className="dropdown-end" labelNode={<Button size='sm' variant='outline'>Bulk Actions</Button>} contentNode={<DropDownContent className="menu shadow bg-base-100 p-2 menu-sm w-48 my-2">
                     <li><a>Delete</a></li>
                 </DropDownContent>
