@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css'
 import Instagram from './components/icons/Instagram';
 import Messenger from './components/icons/Messenger';
 import Header from './components/sections/Header'
