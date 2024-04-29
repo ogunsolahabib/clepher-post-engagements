@@ -11,7 +11,7 @@ type TableProps = {
 } & React.HTMLAttributes<HTMLTableElement>
 
 export default function Table({ columns, data }: TableProps) {
-    return <Card className="card overflow-x-auto min-h-[50vh]">
+    return <Card className="card overflow-x-auto md:h-[60vh]">
         <CardBody>
             <table className="table table-sm bg-base-100 px-6">
                 <thead>
