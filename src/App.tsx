@@ -9,9 +9,8 @@ export function App() {
   }, [navigate])
 
   return (
-    <div className='bg-base-200'>
-      <Outlet />
-    </div>
+
+    <Outlet />
   )
 }
 

@@ -7,6 +7,7 @@ import Pagination from "../../ui/Pagination"
 import CheckBox from "../../ui/Checkbox"
 import Button from "../../ui/Button"
 import Dropdown, { DropDownContent } from "../../ui/Dropdown"
+import Input from "../../ui/Input"
 
 const renderChannelIcon = (channel: any) => {
     switch (channel) {
@@ -15,17 +16,15 @@ const renderChannelIcon = (channel: any) => {
         default: return null
     }
 }
+const allData = [
+    { id: 1, name: "Accountability", engaged: 50, unique: 25, acquired: 66, conversion: 10, channel: 'messenger' },
+    { id: 2, name: "Brand", engaged: 50, unique: 25, acquired: 66, conversion: 10, channel: 'messenger' },
+].map(d => ({ ...d, checked: false }));
 
+const pageSize = 1
 
 export default function PostsTable() {
 
-
-    const allData = [
-        { id: 1, name: "Accountability", engaged: 50, unique: 25, acquired: 66, conversion: 10, channel: 'messenger' },
-        { id: 2, name: "Brand", engaged: 50, unique: 25, acquired: 66, conversion: 10, channel: 'messenger' },
-    ].map(d => ({ ...d, checked: false }));
-
-    const pageSize = 1
 
     const totalPages = Math.ceil(allData.length / pageSize);
 
@@ -40,7 +39,7 @@ export default function PostsTable() {
     }, [paginationData.currentPage, paginationData.endIndex, paginationData.startIndex])
 
 
-    const checkAll = (e) => {
+    const checkAll = (e: React.ChangeEvent<HTMLInputElement>) => {
         const allDataCopy = [...allData];
         if (e.target.checked) {
             allDataCopy.forEach(d => d.checked = true);
@@ -85,6 +84,18 @@ export default function PostsTable() {
         },
     ];
 
-    return <> <Table data={currentData} columns={columns} />
+    return <>
+        <div className="flex justify-between">
+
+            <h1>Post Engagements</h1>
+            <div className="flex gap-2">
+                <Input type="search" id="search" placeholder="Search" className="input-bordered input-sm" />
+                <Dropdown className="dropdown-end" labelNode={<Button size='sm' variant='outline'>Bulk Actions</Button>} contentNode={<DropDownContent className="menu shadow bg-base-100 p-2 menu-sm w-48 my-2">
+                    <li><a>Delete</a></li>
+                </DropDownContent>
+                } />
+            </div>
+        </div>
+        <Table data={currentData} columns={columns} />
         <Pagination totalPages={totalPages} {...paginationData} /></>
 }
