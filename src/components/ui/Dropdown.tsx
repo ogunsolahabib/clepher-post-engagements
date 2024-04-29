@@ -26,7 +26,7 @@ export function DropdownLabel({ className, ...props }: React.HTMLAttributes<HTML
 interface DropdownContentProps extends React.HTMLAttributes<HTMLElement> {
 }
 export function DropDownContent({ className, ...props }: DropdownContentProps) {
-    return <ul tabIndex={0} className={mergeClassNames("dropdown-content p-2  rounded-box z-[1]", className)} {...props} />
+    return <ul tabIndex={0} className={mergeClassNames("dropdown-content p-2  rounded-box z-10", className)} {...props} />
 }
 
 

@@ -14,7 +14,7 @@ export default function Table({ columns, data }: TableProps) {
     return <Card className="card overflow-x-auto md:h-[60vh]">
         <CardBody>
             <table className="table table-sm bg-base-100 px-6">
-                <thead className="sticky top-0 z-50 bg-base-100">
+                <thead className="sticky top-0 z-[1] bg-base-100">
                     <tr>
                         {columns.map((column, index) => (
                             <th key={typeof column.title === "string" ? column.title : index} style={column.width ? { width: column.width } : undefined}>{column.title}</th>

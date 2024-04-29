@@ -10,6 +10,7 @@ import Dropdown, { DropDownContent } from "../../ui/Dropdown"
 import Input from "../../ui/Input"
 import getFilteredList from "../../../utills/getFilteredList"
 import Search from "../../icons/Search"
+import ArrowDown from "../../icons/ArrowDown"
 
 const renderChannelIcon = (channel: any) => {
     switch (channel) {
@@ -116,7 +117,7 @@ export default function PostsTable() {
                     <Search />
 
                 </label>
-                <Dropdown className="dropdown-end" labelNode={<Button size='sm' variant='outline'>Bulk Actions</Button>} contentNode={<DropDownContent className="menu shadow bg-base-100 p-2 menu-sm w-48 my-2">
+                <Dropdown className="dropdown-end" labelNode={<Button size='sm' variant='outline'>Bulk Actions <ArrowDown /></Button>} contentNode={<DropDownContent className="menu shadow bg-base-100 p-2 menu-sm w-48 my-2">
                     <li><a>Delete</a></li>
                 </DropDownContent>
                 } />
